@@ -75,13 +75,18 @@ namespace biuropodrozy
             var rnd = new Random();
             var result = _hotele.OrderBy(item => rnd.Next());
 
+            //7 dniowe
             int numer = 1;
             foreach (var item in result)
             {
                 Console.WriteLine("NUMER: " + numer);
                 numer++;
                 Console.WriteLine("KRAJ: " + item.Kraj);
-                Console.WriteLine("TERMIN: 15.06.2022 - 22.06.2022 (7 dni)");
+
+                var dataWylotu = new DateTime(2022, 06, 15);
+                var dataPowrotu = dataWylotu.AddDays(7);
+                
+                Console.WriteLine("TERMIN: " + dataWylotu + " - " + dataPowrotu);
                 Console.WriteLine("HOTEL: " + item.Nazwa + " (" + item.Kategoria + ")");
                 Console.WriteLine("WYŻYWIENIE: śniadania");
                 Console.WriteLine("CENA: " + (item.Cena * 7) + " PLN/os");
@@ -90,12 +95,17 @@ namespace biuropodrozy
                 if (numer > 1) break;
             }
 
+            //10 dniowe
             int numer2 = 2;
             foreach (var item in result)
             {
                 Console.WriteLine("NUMER: " + numer2);
                 Console.WriteLine("KRAJ: " + item.Kraj);
-                Console.WriteLine("TERMIN: 15.06.2022 - 25.06.2022 (10 dni)");
+
+                var dataWylotu = new DateTime(2022, 06, 15);
+                var dataPowrotu = dataWylotu.AddDays(10);
+
+                Console.WriteLine("TERMIN: " + dataWylotu + " - " + dataPowrotu);
                 Console.WriteLine("HOTEL: " + item.Nazwa + " (" + item.Kategoria + ")");
                 Console.WriteLine("WYŻYWIENIE: śniadania");
                 Console.WriteLine("CENA: " + (item.Cena * 10) + " PLN/os");
@@ -104,15 +114,21 @@ namespace biuropodrozy
                 if (numer >= 2) break;
             }
 
+            //14 dniowe
             int numer3 = 3;
             foreach (var item in result)
             {
                 Console.WriteLine("NUMER: " + numer3);
                 numer++;
                 Console.WriteLine("KRAJ: " + item.Kraj);
-                Console.WriteLine("TERMIN: 15.06.2022 - 29.06.2022 (14 dni)");
+
+                var dataWylotu = new DateTime(2022, 06, 15);
+                var dataPowrotu = dataWylotu.AddDays(14);
+
+                Console.WriteLine("TERMIN: " + dataWylotu + " - " + dataPowrotu);
+
                 Console.WriteLine("HOTEL: " + item.Nazwa + " (" + item.Kategoria + ")");
-                Console.WriteLine("WYŻYWIENIE: śniadania");
+                Console.WriteLine("WYŻYWIENIE: all inclusive");
                 Console.WriteLine("CENA: " + (item.Cena * 14) + " PLN/os");
                 Console.WriteLine("---------------------------");
 
