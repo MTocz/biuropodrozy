@@ -25,6 +25,9 @@ namespace biuropodrozy
         public string Kategoria { get; set; }
         public int Cena { get; set; }
 
-
+        internal static object OrderBy(Func<object, Guid> p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

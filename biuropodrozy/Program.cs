@@ -59,7 +59,7 @@ namespace biuropodrozy
             _hotele.Add(new Hotele("Novotel Rayong", "Tajlandia", "****", 410));
             _hotele.Add(new Hotele("Cholchan Pattaya Resort", "Tajlandia", "***", 290));
 
-
+          
         }
 
 
@@ -72,23 +72,55 @@ namespace biuropodrozy
 
         public static void Pokaz1()
         {
+            var rnd = new Random();
+            var result = _hotele.OrderBy(item => rnd.Next());
+
             int numer = 1;
-            foreach (Hotele hotel in _hotele)
+            foreach (var item in result)
             {
                 Console.WriteLine("NUMER: " + numer);
                 numer++;
-                Console.WriteLine("KRAJ: " + hotel.Kraj);
+                Console.WriteLine("KRAJ: " + item.Kraj);
                 Console.WriteLine("TERMIN: 15.06.2022 - 22.06.2022 (7 dni)");
-                Console.WriteLine("HOTEL: " + hotel.Nazwa + " (" + hotel.Kategoria + ")");
+                Console.WriteLine("HOTEL: " + item.Nazwa + " (" + item.Kategoria + ")");
                 Console.WriteLine("WYŻYWIENIE: śniadania");
-                Console.WriteLine("CENA: " + (hotel.Cena * 7) + " PLN/os");
+                Console.WriteLine("CENA: " + (item.Cena * 7) + " PLN/os");
                 Console.WriteLine("---------------------------");
 
-                if (numer > 3) break;
+                if (numer > 1) break;
             }
 
-                
-                Console.WriteLine("PROSZĘ PODAĆ NUMER WYBRANEJ OFERTY:");
+            int numer2 = 2;
+            foreach (var item in result)
+            {
+                Console.WriteLine("NUMER: " + numer2);
+                Console.WriteLine("KRAJ: " + item.Kraj);
+                Console.WriteLine("TERMIN: 15.06.2022 - 25.06.2022 (10 dni)");
+                Console.WriteLine("HOTEL: " + item.Nazwa + " (" + item.Kategoria + ")");
+                Console.WriteLine("WYŻYWIENIE: śniadania");
+                Console.WriteLine("CENA: " + (item.Cena * 10) + " PLN/os");
+                Console.WriteLine("---------------------------");
+
+                if (numer >= 2) break;
+            }
+
+            int numer3 = 3;
+            foreach (var item in result)
+            {
+                Console.WriteLine("NUMER: " + numer3);
+                numer++;
+                Console.WriteLine("KRAJ: " + item.Kraj);
+                Console.WriteLine("TERMIN: 15.06.2022 - 29.06.2022 (14 dni)");
+                Console.WriteLine("HOTEL: " + item.Nazwa + " (" + item.Kategoria + ")");
+                Console.WriteLine("WYŻYWIENIE: śniadania");
+                Console.WriteLine("CENA: " + (item.Cena * 14) + " PLN/os");
+                Console.WriteLine("---------------------------");
+
+                if (numer >= 3) break;
+            }
+
+
+            Console.WriteLine("PROSZĘ PODAĆ NUMER WYBRANEJ OFERTY:");
                 string NumerOferty = Console.ReadLine();
                 int WybranaOferta = int.Parse(NumerOferty);
 
